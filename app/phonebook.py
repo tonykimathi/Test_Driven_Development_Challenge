@@ -1,4 +1,5 @@
-def phonebookclass():
+class phonebookclass(object):
+
     contact_list = []
     phonebook = {}
 
@@ -6,9 +7,9 @@ def phonebookclass():
         self.name = name
         self.phone_number = phone_number
 
-        phonebook[name] = phone_number
+        self.phonebook[name] = phone_number
 
-    def addContact(self, name, phone_number):
+    def add_contact(self, name, phone_number):
         self.name = name
         self.phone_number = phone_number
 
@@ -24,9 +25,9 @@ def phonebookclass():
         if phone_number is None or len(str(phone_number)) < 6:
             return "phone number should have at least 6 digits"
 
-        phonebook[name] = phone_number
+        self.phonebook[name] = phone_number
 
-        contact_list.append(phonebook)
+        self.contact_list.append(self.phonebook)
 
         return "Number added successfully"
 
@@ -34,16 +35,16 @@ def phonebookclass():
         self.name = name
         self.phone_number = phone_number
 
-        phonebook[name] = phone_number
+        self.phonebook[name] = phone_number
 
-        contact_list.append(phonebook)
+        self.contact_list.append(self.phonebook)
 
         return "Phone book updated correctly"
 
-    def viewContacts():
+    def viewContacts(self):
         all_contacts = []
 
-        for item in contact_list:
+        for item in self.contact_list:
             all_contacts.append(item)
 
         return all_contacts
@@ -51,7 +52,7 @@ def phonebookclass():
 
     def deleteContacts(self, phone_number):
         count = 0
-        for item in contact_list:
+        for item in self.contact_list:
             if str(phone_number) == phone_number:
                 self.contact_list.pop(count)
                 del item
